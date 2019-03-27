@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/uikit.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="img/index.jpg">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/navbar-fixed.css">
+  <link rel="stylesheet" href="css/style4.css">
+  <title>Wedding Service</title>
+</head>
+<body>
+  <!--Navigation-->
+
+  <nav class="navbar navbar-dark navbar-expand-md" uk-sticky="top: 50; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Wedding
+        Organizer</a>
+      <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div id="navbarNav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item active">
+            <a class=" nav-link" data-toggle="modal" data-target="#popUplogIn">LogIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<!--Registration Form-->
+
+<section class="py-5" id="registration">
+  <div class="container">
+    <h5 class="py-5 text-center font-weight-bold">Register Now!</h5>
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="form-group" action="" method="post">
+          <label for="">First Name</label>
+          <input type="text" name="f_name" class="form-control" value="">
+        </form>
+        <form class="form-group" action="" method="post">
+          <label for="">Last Name</label>
+          <input type="text" name="l_name" class="form-control" value="">
+        </form>
+        <form class="form-group" action="" method="post">
+          <label for="">Email</label>
+          <input type="text" name="email" class="form-control" value="">
+        </form>
+        <form class="form-group" action="" method="post">
+          <label for="">Password</label>
+          <input type="password" name="password" class="form-control" value="">
+        </form>
+        <form class="form-group" action="" method="post">
+          <label for="">*Retype Password</label>
+          <input type="password" name="password" class="form-control" value="">
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <form class="form-group" action="" method="post">
+          <label for="">User Type</label>
+          <div class=" col-lg-6 ">
+              <select class="form-control" name="">
+                <option value="Normal" selected>Normal</option>
+                <option value="Baburchi">Baburchi</option>
+                <option value="Decoration">Decoration</option>
+                <option value="Community Center">Community Center</option>
+                <option value="Transportation">Transportation</option>
+              </select>
+            </div>
+        </form>
+        <form class="form-group" action="" method="post">
+          <label for="">Phone No.</label>
+          <input type="text" name="p_no" class="form-control" value="">
+        </form>
+        <form class="form-group" action="" method="post">
+          <label for="">Address</label>
+          <input type="text" name="address" class="form-control" value="">
+        </form>
+        <div class="pt-3">
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+        <div class="py-3">
+          <h8>Already Have an Account? <a href="" data-toggle="modal" data-target="#popUplogIn" >LogIn</a> </h8>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!--popUp Login-->
+<div class="modal" id="popUplogIn">
+    <div class="container">
+      <div class="modal-dialog">
+        <div class="modal-content bg-light text-dark">
+          <button class="close text-dark text-right mx-2" data-dismiss="modal">&times;</button>
+          <div class="modal-body py-3">
+            <div class="pb-4">
+              <h4 class="text-center">LOGIN</h4>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 m-0">
+                <div>
+                 <a href="" class="lol btn btn-block bg-primary"><i class="fab fa-facebook-f"></i>CONNECT WITH FACEBOOK</a>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <form action="" method="POST">
+                  <div class="form-group">
+                        <input type="text" placeholder="Username" name="username" class="form-control ">
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="pass1" placeholder="Password" class="form-control">
+                      </div>
+                      <input type="submit" class="btn btn-outline bg-success btn-block" value="Submit">
+                </form>
+              </div>
+            </div>
+            <div class="row text-center pt-2 m-0">
+              <h8> Not registered yet? <a href="Registration.html">Register</a> </h8>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--Copyright-->
+
+<section id="copyright" class="text-center text-light">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="lead m-3">Copyright 2018 &copy; Wedding Organizer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/uikit.min.js"></script>
+  <script src="js/uikit-icons.min.js"></script>
+  <script src="js/navbar-fixed.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+body{
+  font-family: monospace;
+}
+
+.navbar {
+  background: #252525; }
+  .navbar .nav-item {
+    padding-left: 1em; }
+    .navbar .nav-item .nav-link {
+      text-transform: uppercase; }
+
+
+
+#copyright{
+        background-color: #000000;}
+
+
+#popUplogIn{}
+    .fab{
+      padding: 5px;
+      font-size: 15px;}
+    .lol{
+      padding: 5px;
+      font-size: 13px;}
+    .modal .container .modal-body{
+      font-family: monospace;}
