@@ -3,6 +3,8 @@
 <?php require_once("include/session.php"); ?>
 
 <?php
+//Registration form things
+
 $searchquery = $_GET["id"];
 if (isset($_POST["Submit"])){
 $name = $_POST["org_name"] ;
