@@ -1,3 +1,35 @@
+<?php require_once("include/DB.php"); ?>
+<?php require_once("include/function.php"); ?>
+<?php require_once("include/session.php"); ?>
+<?php confirm_login(); ?>
+
+<?php
+$searchquery = $_GET["id"];
+if (isset($_POST["Submit"])){
+  global $connectingdb;
+  $sql="DELETE FROM client WHERE id='$searchquery' ";
+  $Execute = $connectingdb->query($sql);
+
+   if($Execute){
+    $_SESSION["SuccessMessage"] = "Post Deleted Succesfully";
+    Redirect_to("admin_check.php");
+  }else{
+    $_SESSION["ErrorMessage"]="Something went wrong. Please Try again";
+    Redirect_to("Delete_admin.php?id=$searchquery");
+  }
+
+
+
+}else {
+   //Query to update info into database
+
+   }
+
+
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +44,7 @@
   <title>Wedding Service</title>
 </head>
 <body>
+
   <!--NavBar-->
  <nav class="navbar navbar-dark navbar-expand-md " uk-sticky="top: 200; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
    <!--navbar-expand-md for horizontal nav on medium to upper --> <!--navbar-dark for text white -->
@@ -28,123 +61,105 @@
        <!--collapse to remove home,... from nav.. small device fact -->
        <ul class="navbar-nav ml-auto"><!--navbar-nav to remove bulletpoint from nav -->
          <li class="nav-item ">    <!--active to make the home icon actv in nav-->
-           <a class="nav-link" href="index.html">Home</a><!--commit to git-->
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="Categories.html">Categories</a>
+           <a class="nav-link" href="index.html">Home</a>
          </li>
          <li class="nav-item active">
+           <a class="nav-link" href="Categories.html">Categories</a>
+         </li>
+         <li class="nav-item ">
            <a class="nav-link" href="About.html">About Us</a>
          </li>
-
          <li class="nav-item">
            <a class="nav-link" href="Contact.html">Contact</a>
          </li>
-         <li class="nav-item">
-             <a class="nav-link" href="login_UI.php">Account</a>
-           </li>
-           <li class="nav-item">
-               <a class="nav-link" href="admin_login.php">Admin</a>
-             </li>
+
        </ul>
      </div>
    </div>
 </nav>
 
-<!--Page Header-->
-<section id="page-header" class="text-light text-center">
+
+<!--Registration Form-->
+
+<section class="py-5" id="registration" >
   <div class="container">
+    <h2 class="py-3 text-center text-danger bg-dark">Delete Post Here</h2>
     <div class="row">
-      <div class="col pt-5">
-        <h2 class="text-light">About Us</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
+      <div class="col-lg-6">
+        <?php
+              echo ErrorMessage();
+              echo SuccessMessage();
+              global $connectingdb;
+
+              $sql = "SELECT * FROM client WHERE id='$searchquery'";
+              $stmt = $connectingdb->query($sql);
+              while ($DataRows=$stmt->fetch()) {
+
+                $NameToBeUpdated = $DataRows['name'];
+                $EmailToBeUpdated = $DataRows['email'];
+                $PhoneToBeUpdated = $DataRows['phone'];
+                $TypeToBeUpdated = $DataRows['type'];
+                $ImageToBeUpdated = $DataRows['image'];
+
+              }
+
+
+         ?>
+        <form class="form-group" action="Delete_admin.php?id=<?php echo $searchquery; ?>" method="post" enctype="multipart/form-data"> <!--enctype for image extraction-->
+          <!--
+          <div class="form-group">
+          <label for="">First Name</label>
+          <input type="text" name="first_name" class="form-control" value="">
+        </div> -->
+          <!--
+          <div class="form-group">
+          <label for="">Last Name</label>
+          <input type="text" name="last_name" class="form-control" value="">
+           </div>-->
+           <div class="form-group">
+           <label for="">Orgnization Name</label>
+           <input disabled type="text" name="org_name" class="form-control" value="<?php echo $NameToBeUpdated ?>">
+         </div>
+          <div class="form-group">
+          <label for="">Email</label>
+          <input disabled type="text" name="email" class="form-control" value="<?php echo $EmailToBeUpdated ?>">
+          </div>
+          <div class="form-group">
+          <label for="">Phone</label>
+          <input disabled type="text" name="phone" class="form-control" value="<?php echo $PhoneToBeUpdated ?>">
+          </div>
+          <div class="form-group">
+          <label for="">Current User Type is:</label>
+          <input disabled type="text" name="phone" class="form-control" value="<?php echo $TypeToBeUpdated ; ?>">
+          </div>
+
+
       </div>
-    </div>
-  </div>
-</section>
-<!--What we do-->
-<section id="about-info" class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 align-self-center">
-        <h3>What We Do</h3>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-      </div>
-      <div class="col-md-6 text-right">
-        <img src="img/pexels-photo-1841546.jpeg" class="img-fluid rounded-circle" alt="image">
+
+      <div class="col-lg-6 ">
+
+
+
+          <div class="form-group ml-3 mt-2">
+            <span class="Fieldinfo">Current Iamge: </span>
+            <br>
+            <img class="mb-2" src="upload/<?php echo $ImageToBeUpdated; ?>" alt="img" width="170px;" height="70px;">
+            <br>
+
+          </div>
+
+        <div class="ml-3 pt-3">
+          <input type="submit" name="Submit" class="btn btn-danger" value="Delete">
+        </div>
+      </form>
+
       </div>
     </div>
   </div>
 </section>
 
-<!--icon-box-->
-<section id="icon-boxes" class="py-5 text-center text-light">
-  <div class="container">
-    <!--Row-1-->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card bg-success">
-          <div class="card-body">
-            <i class="fas fa-hotel "></i>
-            <h3 class="text-light">Community Center</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-dark">
-          <div class="card-body">
-            <i class="fas fa-utensils"></i>
-            <h3 class="text-light">Catering</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-primary">
-          <div class="card-body">
-            <i class="fas fa-palette"></i>
-            <h3 class="text-light">Decoration</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!--Row-2-->
-    <div class="row pt-0 pt-md-4">
-      <div class="col-md-4">
-        <div class="card bg-danger">
-          <div class="card-body">
-            <i class="fas fa-taxi "></i>
-            <h3 class="text-light">Transportation</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-warning">
-          <div class="card-body">
-            <i class="fas fa-guitar"></i>
-            <h3 class="text-light">Entertainments</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-secondary">
-          <div class="card-body">
-            <i class="fas fa-camera text-dark"></i>
-            <h3 >Photography</h3>
-            <p class="lead text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </div>
-</section>
 
 
 <!--Copyright-->
@@ -195,14 +210,11 @@
   </div>
 <!-- popup for login -->
 
-
-
-
-
   <script src="js/jquery.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/uikit.min.js"></script>
   <script src="js/uikit-icons.min.js"></script>
+  <script src="js/navbar-fixed.js"></script>
 </body>
 </html>

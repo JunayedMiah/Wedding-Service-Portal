@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,15 +29,14 @@
        <!--collapse to remove home,... from nav.. small device fact -->
        <ul class="navbar-nav ml-auto"><!--navbar-nav to remove bulletpoint from nav -->
          <li class="nav-item ">    <!--active to make the home icon actv in nav-->
-           <a class="nav-link" href="index.html">Home</a><!--commit to git-->
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="Categories.html">Categories</a>
+           <a class="nav-link" href="index.html">Home</a>
          </li>
          <li class="nav-item active">
+           <a class="nav-link" href="Categories.html">Categories</a>
+         </li>
+         <li class="nav-item ">
            <a class="nav-link" href="About.html">About Us</a>
          </li>
-
          <li class="nav-item">
            <a class="nav-link" href="Contact.html">Contact</a>
          </li>
@@ -52,98 +52,112 @@
 </nav>
 
 <!--Page Header-->
-<section id="page-header" class="text-light text-center">
+<section id="Categories-page-header" class="text-light text-center">
   <div class="container">
     <div class="row">
       <div class="col pt-5">
-        <h2 class="text-light">About Us</h2>
+        <h2 class="text-light">Categories</h2>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
       </div>
     </div>
   </div>
 </section>
-<!--What we do-->
-<section id="about-info" class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 align-self-center">
-        <h3>What We Do</h3>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-      </div>
-      <div class="col-md-6 text-right">
-        <img src="img/pexels-photo-1841546.jpeg" class="img-fluid rounded-circle" alt="image">
-      </div>
-    </div>
-  </div>
-</section>
 
-<!--icon-box-->
-<section id="icon-boxes" class="py-5 text-center text-light">
+<!--Card Section-->
+<section id="categories" class="py-5">
   <div class="container">
     <!--Row-1-->
     <div class="row">
-      <div class="col-md-4">
-        <div class="card bg-success">
-          <div class="card-body">
-            <i class="fas fa-hotel "></i>
-            <h3 class="text-light">Community Center</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
+      <div class="col">
+        <div class="card-columns">
+          <!--Card-1-->
+          <div class="card">
+            <img src="img/candles-celebration-champagne-glasses-1045541.jpg" class="img-fluid card-img-top" alt="image">
+            <div class="card-body">
+              <div class="card-title">
+                <h3>Catering Services</h3>
+                <hr>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ut perspiciatis omnis voluptas autem doloribus optio error, sint voluptatum, dolore.</p>
+                <a href="Catering.php" class="btn btn-block btn-dark">Find More</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-dark">
-          <div class="card-body">
-            <i class="fas fa-utensils"></i>
-            <h3 class="text-light">Catering</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
+          <!--Card-2-->
+          <div class="card">
+            <img src="img/arches-architecture-art-316080.jpg" class="img-fluid card-img-top" alt="image">
+            <div class="card-body">
+              <div class="card-title">
+                <h3>Community Centers</h3>
+                <hr>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ut perspiciatis omnis voluptas autem doloribus optio error, sint voluptatum, dolore.</p>
+                <a href="Community Service.php" class="btn btn-block btn-dark">Find More</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-primary">
-          <div class="card-body">
-            <i class="fas fa-palette"></i>
-            <h3 class="text-light">Decoration</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
+          <!--Card-3-->
+          <div class="card">
+            <img src="img/bokeh-christmas-lights-colors-1042152.jpg" class="img-fluid card-img-top" alt="image">
+            <div class="card-body">
+              <div class="card-title">
+                <h3>Decorations</h3>
+                <hr>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ut perspiciatis omnis voluptas autem doloribus optio error, sint voluptatum, dolore.</p>
+                <a href="Decorator.php" class="btn btn-block btn-dark">Find More</a>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
 
     <!--Row-2-->
-    <div class="row pt-0 pt-md-4">
-      <div class="col-md-4">
-        <div class="card bg-danger">
-          <div class="card-body">
-            <i class="fas fa-taxi "></i>
-            <h3 class="text-light">Transportation</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
+    <div class="row  pt-0 pt-md-4 ">
+      <div class="col">
+        <div class="card-columns">
+          <!--Card-1-->
+          <div class="card">
+            <img src="img/adult-anger-angry-924885.jpg" class="img-fluid card-img-top" alt="image">
+            <div class="card-body">
+              <div class="card-title">
+                <h3>Transportations</h3>
+                <!--<small class="text-muted mb-0">Image is for sarcasm.We provide better</small>-->
+                <hr>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ut perspiciatis omnis voluptas autem doloribus optio error, sint voluptatum, dolore.</p>
+                <a href="transportation.php" class="btn btn-block btn-dark">Find More</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-warning">
-          <div class="card-body">
-            <i class="fas fa-guitar"></i>
-            <h3 class="text-light">Entertainments</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
+          <!--Card-2-->
+          <div class="card">
+            <img src="img/band-celebration-concert-1918162.jpg" class="img-fluid card-img-top" alt="image">
+            <div class="card-body">
+              <div class="card-title">
+                <h3>Entertainments</h3>
+                <hr>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ut perspiciatis omnis voluptas autem doloribus optio error, sint voluptatum, dolore.</p>
+                <a href="Decorator.php" class="btn btn-block btn-dark">Find More</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-secondary">
-          <div class="card-body">
-            <i class="fas fa-camera text-dark"></i>
-            <h3 >Photography</h3>
-            <p class="lead text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
+          <!--Card-3-->
+          <div class="card">
+            <img src="img/camera-canon-dslr-243757.jpg" class="img-fluid card-img-top" alt="image">
+            <div class="card-body">
+              <div class="card-title">
+                <h3>Photography</h3>
+                <hr>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto ut perspiciatis omnis voluptas autem doloribus optio error, sint voluptatum, dolore.</p>
+                <a href="Decorator.php" class="btn btn-block btn-dark">Find More</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
+        </div>
+      </div>
     </div>
   </div>
+
 </section>
 
 

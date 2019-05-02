@@ -1,3 +1,25 @@
+<?php require_once("include/DB.php"); ?>
+<?php require_once("include/function.php"); ?>
+<?php require_once("include/session.php"); ?>
+<?php confirm_login(); ?>
+<?php
+//fetching the admin data
+$adminid=$_SESSION["UserId"];
+global $connectingdb;
+$sql ="SELECT *FROM admin WHERE id='$adminid'";
+$stmt=$connectingdb->query($sql);
+while($DataRows = $stmt->fetch()){
+  $id=$DataRows['id']; //fetched this one for the edit option
+  $Existingname= $DataRows['name'];
+  $Existingemail= $DataRows['email'];
+  $Existingpassword=$DataRows['password'];
+  $Existingphone=$DataRows['phone'];
+  $Existingimage=$DataRows['image'];
+
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,123 +50,133 @@
        <!--collapse to remove home,... from nav.. small device fact -->
        <ul class="navbar-nav ml-auto"><!--navbar-nav to remove bulletpoint from nav -->
          <li class="nav-item ">    <!--active to make the home icon actv in nav-->
-           <a class="nav-link" href="index.html">Home</a><!--commit to git-->
+           <a class="nav-link" href="index.html">Home</a>
          </li>
          <li class="nav-item">
            <a class="nav-link" href="Categories.html">Categories</a>
          </li>
-         <li class="nav-item active">
+         <li class="nav-item ">
            <a class="nav-link" href="About.html">About Us</a>
          </li>
-
          <li class="nav-item">
            <a class="nav-link" href="Contact.html">Contact</a>
          </li>
          <li class="nav-item">
              <a class="nav-link" href="login_UI.php">Account</a>
            </li>
-           <li class="nav-item">
-               <a class="nav-link" href="admin_login.php">Admin</a>
+           <li class="nav-item  active">
+               <a class="nav-link" href="admin_login.php">Profile</a>
              </li>
+         <li class="nav-item">
+           <a class="nav-link" href="admin_logout.php">Logout</a>
+         </li>
+
        </ul>
      </div>
    </div>
 </nav>
 
 <!--Page Header-->
-<section id="page-header" class="text-light text-center">
+<section id="admin_check" class="text-light text-center mb-5">
   <div class="container">
     <div class="row">
       <div class="col pt-5">
-        <h2 class="text-light">About Us</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!--What we do-->
-<section id="about-info" class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 align-self-center">
-        <h3>What We Do</h3>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-      </div>
-      <div class="col-md-6 text-right">
-        <img src="img/pexels-photo-1841546.jpeg" class="img-fluid rounded-circle" alt="image">
+        <h2 class="text-light">Admin Panel</h2>
+        <p class="lead text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!--icon-box-->
-<section id="icon-boxes" class="py-5 text-center text-light">
-  <div class="container">
-    <!--Row-1-->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card bg-success">
-          <div class="card-body">
-            <i class="fas fa-hotel "></i>
-            <h3 class="text-light">Community Center</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-dark">
-          <div class="card-body">
-            <i class="fas fa-utensils"></i>
-            <h3 class="text-light">Catering</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-primary">
-          <div class="card-body">
-            <i class="fas fa-palette"></i>
-            <h3 class="text-light">Decoration</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
+<!--Main Section-->
+<!--Image-->
+<section id="admin_avatar" class="pt-5 pb-3 ">
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <?php
+      echo ErrorMessage();
+      echo SuccessMessage();
+      ?>
     </div>
+  </div>
+  <div class="row ">
 
-    <!--Row-2-->
-    <div class="row pt-0 pt-md-4">
-      <div class="col-md-4">
-        <div class="card bg-danger">
-          <div class="card-body">
-            <i class="fas fa-taxi "></i>
-            <h3 class="text-light">Transportation</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-warning">
-          <div class="card-body">
-            <i class="fas fa-guitar"></i>
-            <h3 class="text-light">Entertainments</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-secondary">
-          <div class="card-body">
-            <i class="fas fa-camera text-dark"></i>
-            <h3 >Photography</h3>
-            <p class="lead text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
+  <div class="col-md-4 ">
+
+  </div>
+
+    <div class="col-md-4 bg-dark text-center">
+      <h2 class="py-2 text-light">Welcome Back Admin</h2>
+      <img src="upload/<?php echo $Existingimage; ?>" class="img-fluid rounded p-2 pb-4" width="270px" height="250px" alt="image">
+      <p class="lead text-light">Name: <?php echo $Existingname; ?> </p>
+    </div>
+  </div>
+</div>
+</section>
+<!--Client Table-->
+<section class="">
+<div class="container py-2 mb-4">
+  <div class="row">
+    <div class="col">
+
+      <h1 class="text-danger text-center bg-dark py-2" >Client Table</h1>
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+          <th class="py-2">#</th>
+          <th class="py-2">id</th>
+          <th class="py-2">Name</th>
+          <th class="py-2">Category</th>
+          <th class="py-2">Banner</th>
+          <th class="py-2">Email</th>
+          <th class="py-2">Phone</th>
+          <th class="py-2">Action</th>
+        </tr>
+        </thead>
+        <!--PhP for fetching Client info from client table -->
+        <?php
+        global $connectingdb;
+        $sql = "SELECT *FROM client ";
+        $stmt = $connectingdb->query($sql);
+        while($DataRows = $stmt->fetch()){
+          $id = $DataRows["id"];
+          $name = $DataRows["name"];
+          $email = $DataRows["email"];
+          $phone = $DataRows["phone"];
+          $image = $DataRows["image"];
+          $type =  $DataRows["type"];
+
+        ?>
+        <tbody>
+        <tr>
+          <td>#</td>
+          <td><?php echo $id; ?></td>
+          <td><?php echo $name; ?></td>
+          <td><?php echo $type; ?></td>
+          <td><img src="upload/<?php echo $image; ?>" alt="img" width="170px;" height="50px"></td>
+          <td><?php echo $email; ?></td>
+          <td><?php echo $phone; ?></td>
+          <td>
+            <span>
+              <a href="Edit_admin.php?id=<?php echo $id; ?>"><span class="btn btn-warning">Edit</span></a>
+              <a href="Delete_admin.php?id=<?php echo $id; ?>"><span class="btn btn-danger">Delete</span></a>
+
+            </span>
+
+          </td>
+
+        </tr>
+        </tbody>
+        <?php } ?>
+      </table>
 
     </div>
   </div>
+</div>
+
 </section>
+
 
 
 <!--Copyright-->

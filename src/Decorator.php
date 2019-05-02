@@ -1,3 +1,7 @@
+<?php require_once("include/DB.php"); ?>
+<?php require_once("include/function.php"); ?>
+<?php require_once("include/session.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,15 +32,14 @@
        <!--collapse to remove home,... from nav.. small device fact -->
        <ul class="navbar-nav ml-auto"><!--navbar-nav to remove bulletpoint from nav -->
          <li class="nav-item ">    <!--active to make the home icon actv in nav-->
-           <a class="nav-link" href="index.html">Home</a><!--commit to git-->
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" href="Categories.html">Categories</a>
+           <a class="nav-link" href="index.html">Home</a>
          </li>
          <li class="nav-item active">
+           <a class="nav-link" href="Categories.html">Categories</a>
+         </li>
+         <li class="nav-item ">
            <a class="nav-link" href="About.html">About Us</a>
          </li>
-
          <li class="nav-item">
            <a class="nav-link" href="Contact.html">Contact</a>
          </li>
@@ -52,99 +55,86 @@
 </nav>
 
 <!--Page Header-->
-<section id="page-header" class="text-light text-center">
+<section id="Decorator-page-header" class="text-light text-center mb-5">
   <div class="container">
     <div class="row">
       <div class="col pt-5">
-        <h2 class="text-light">About Us</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
+        <h2 class="text-light">Decoration Services</h2>
+        <p class="lead">Check Out Our Decoration</p>
       </div>
     </div>
   </div>
 </section>
-<!--What we do-->
-<section id="about-info" class="py-5">
+
+<!--PhP for fetching main section-->
+<?php
+global $connectingdb;
+$sql = "SELECT *FROM client WHERE type='decorator' OR type='photographer' OR type='entertainments'";
+$stmt = $connectingdb->query($sql);
+while($DataRows = $stmt->fetch()){
+  $id = $DataRows["id"];
+  $name = $DataRows["name"];
+  $email = $DataRows["email"];
+  $phone = $DataRows["phone"];
+  $image = $DataRows["image"];
+  $type = $DataRows["type"];
+
+?>
+<!--Main Section-->
+<section class="comu py-2" id="center">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 align-self-center">
-        <h3>What We Do</h3>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
+      <div class="col-lg-6 my-4">
+        <img src="upload/<?php echo $image; ?>" alt="Sorry" class="img-fluid rounded">
       </div>
-      <div class="col-md-6 text-right">
-        <img src="img/pexels-photo-1841546.jpeg" class="img-fluid rounded-circle" alt="image">
+      <div class="col-lg-6 text-center ">
+        <h3><?php echo $name; ?></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, consequuntur.</p>
+        <h4>Type</h4>
+        <p><?php echo $type; ?></p>
+        <h4>Address</h4>
+        <p>House #100, Uttara, Dhaka</p>
+        <h4>Email</h4>
+        <p><?php echo $email; ?></p>
+        <h4>Phone</h4>
+        <p><?php echo $phone;  ?></p>
+        <div class="d-flex flex-row justify-content-center">
+          <div>
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          </div>
+          <div>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+          <div>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="">
+          <button type="button" href="" name="button" class="btn btn-outline bg-primary">Read More </button>
+        </div>
       </div>
     </div>
   </div>
 </section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
 
-<!--icon-box-->
-<section id="icon-boxes" class="py-5 text-center text-light">
-  <div class="container">
-    <!--Row-1-->
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card bg-success">
-          <div class="card-body">
-            <i class="fas fa-hotel "></i>
-            <h3 class="text-light">Community Center</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-dark">
-          <div class="card-body">
-            <i class="fas fa-utensils"></i>
-            <h3 class="text-light">Catering</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-primary">
-          <div class="card-body">
-            <i class="fas fa-palette"></i>
-            <h3 class="text-light">Decoration</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <!--Row-2-->
-    <div class="row pt-0 pt-md-4">
-      <div class="col-md-4">
-        <div class="card bg-danger">
-          <div class="card-body">
-            <i class="fas fa-taxi "></i>
-            <h3 class="text-light">Transportation</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-warning">
-          <div class="card-body">
-            <i class="fas fa-guitar"></i>
-            <h3 class="text-light">Entertainments</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-secondary">
-          <div class="card-body">
-            <i class="fas fa-camera text-dark"></i>
-            <h3 >Photography</h3>
-            <p class="lead text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-4">
+      <hr class="bg-info">
+    </div>
+    <div class="col-lg-4">
 
     </div>
   </div>
-</section>
+</div>
+
+
+ 
+
+<?php } ?>
+
 
 
 <!--Copyright-->

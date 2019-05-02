@@ -5,190 +5,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/uikit.min.css">
-  <link rel="shortcut icon" type="image/x-icon" href="img/index.jpg">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="fontawesome/css/all.css">
   <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/navbar-fixed.css">
-  <link rel="stylesheet" href="css/style3.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="img/Wedding Couple.png">
   <title>Wedding Service</title>
 </head>
 <body>
-  <!--Navigation-->
+  <!--NavBar-->
+ <nav class="navbar navbar-dark navbar-expand-md " uk-sticky="top: 200; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
+   <!--navbar-expand-md for horizontal nav on medium to upper --> <!--navbar-dark for text white -->
+   <div class="container">
+     <a href="index.html" class="navbar-brand">Wedding Service</a>
+     <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarnav">
+       <!--navbar-toggler to bring toggler on small device -->
+       <!--data-target="#nav1" to call an id nav1 form div below.... small device -->
+       <span class="navbar-toggler-icon"></span>
+       <!--navbar-toggler-icon to bring toggler icon on small device -->
 
-  <nav class="navbar navbar-dark navbar-expand-md" uk-sticky="top: 100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
-    <div class="container">
-      <a href="index.html" class="navbar-brand">Wedding
-        Organizer</a>
-      <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+     </button>
+     <div id="navbarnav" class="collapse navbar-collapse">
+       <!--collapse to remove home,... from nav.. small device fact -->
+       <ul class="navbar-nav ml-auto"><!--navbar-nav to remove bulletpoint from nav -->
+         <li class="nav-item ">    <!--active to make the home icon actv in nav-->
+           <a class="nav-link" href="index.html">Home</a>
+         </li>
+         <li class="nav-item ">
+           <a class="nav-link" href="Categories.html">Categories</a>
+         </li>
+         <li class="nav-item ">
+           <a class="nav-link" href="About.html">About Us</a>
+         </li>
+         <li class="nav-item active">
+           <a class="nav-link" href="Contact.html">Contact</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link" href="login_UI.php">Account</a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="admin_login.php">Admin</a>
+             </li>
+       </ul>
+     </div>
+   </div>
+</nav>
 
-      <div id="navbarNav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="services.html">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="dropdown nav-item">
-            <a class=" dropbtn nav-link" data-toggle="modal" data-target="#popUplogIn">LogIn</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!--Header-->
-    <section id="contact" class="text-center text-light py-5">
-      <div class="dark-overlay">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <h1 class="text-light font-italic mt-5">CONTACT US</h1>
-              <p class="lead font-weight-bold font-italic"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
-            </div>
-          </div>
-        </div>
-        </div>
-    </section>
-
-    <section class="text-dark ">
-      <h5> <a class="lead" href="index.html"> Home/</a><small class="text-muted"> Contact</small></h5>
-    </section>
-
-
-<!--Contact Form-->
-
-<section id="Form" class="py-5 ">
+<!--Page Header-->
+<section id="Contact-page-header" class="text-light text-center">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
-        <div class="card">
-            <h3 class="py-3 text-center">Please fill out this form to contact us</h3>
-            <div class="row mx-2">
-              <div class="col-lg-6">
-                  <div class="form-group">
-                    <input type="text" placeholder="First Name" class="form-control mb-3">
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="form-group">
-                    <input type="text" placeholder="Last Name" class="form-control mb-3">
-                  </div>
-              </div>
-          </div>
-          <div class="row mx-2">
-            <div class="col-lg-6">
-                <div class="form-group">
-                  <input type="text" placeholder="Email" class="form-control mb-3">
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-group">
-                  <input type="text" placeholder="Phone Number" class="form-control mb-3">
-                </div>
-            </div>
-          </div>
-          <div class="row mx-2">
-            <div class="col-lg-12">
-                <div class="form-group">
-                  <textarea  rows="5" cols="80" class="form-control"></textarea>
-                </div>
-            </div>
-          </div>
-          <div class="row mx-2">
-            <div class="col-lg-12">
-                <a href="#" class="btn btn-block bg-dark mb-3 text-light">Send</a>
-            </div>
-          </div>
-        </div>
+      <div class="col pt-5">
+        <h2 class="text-light">Contact Us</h2>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
       </div>
-      <div class="col-lg-4">
+    </div>
+  </div>
+</section>
+
+<!--Contact-->
+<section id="contact" class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
         <div class="card">
           <div class="card-body">
-            <h4 class="">Get In Touch</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, consequuntur.</p>
+            <h4 class="text-center">Fill out this form to contact us</h4>
+          <form class="" action="https://formspree.io/khondoker.shohag@northsouth.edu" method="post">
+            <div class="row mt-4">
+              <!--col1-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" placeholder="First Name" class="form-control">
+                   </div>
+              </div>
+              <!--col2-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" placeholder="Last Name" class="form-control">
+                   </div>
+              </div>
+              <!--col3-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="email" placeholder="Email" class="form-control">
+                   </div>
+              </div>
+              <!--col4-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" placeholder="Phone Number" class="form-control">
+                   </div>
+              </div>
+              <!--col5-->
+              <div class="col-md-12">
+                <div class="form-group">
+                <textarea cols="30" rows="5" class="form-control" placeholder="Write a Message"></textarea>
+                   </div>
+              </div>
+              <!--Button-->
+              <div class="col-md-12">
+                <input type="submit" name="contactbtn" class="btn btn-block btn-dark" value="Send">
+              </div>
+          </div>
+        </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h4>Keep in touch</h4>
+            <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, consequuntur.</p>
             <h4>Address</h4>
-            <p>House #100, Uttara, Dhaka</p>
+            <p >B-block,Bashundhara R/A</p>
             <h4>Email</h4>
-            <p>test@gmail.com</p>
+            <p>blahblah@gmail.com</p>
             <h4>Phone</h4>
             <p class="mb-2">+434 3434 3433</p>
             <p>+434 3434 3433</p>
+
           </div>
         </div>
+
+
       </div>
     </div>
   </div>
+
 </section>
 
-<!--popUp Login-->
-<div class="modal" id="popUplogIn">
-    <div class="container">
-      <div class="modal-dialog">
-        <div class="modal-content bg-light text-dark">
-          <button class="close text-dark text-right mx-2" data-dismiss="modal">&times;</button>
-          <div class="modal-body py-3">
-            <div class="pb-4">
-              <h4 class="text-center">LOGIN</h4>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 m-0">
-                <div>
-                 <a href="" class="lol btn btn-block bg-primary"><i class="fab fa-facebook-f"></i>CONNECT WITH FACEBOOK</a>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <form action="" method="POST">
-                  <div class="form-group">
-                        <input type="text" placeholder="Username" name="username" class="form-control ">
-                      </div>
-                      <div class="form-group">
-                        <input type="password" name="pass1" placeholder="Password" class="form-control">
-                      </div>
-                      <input type="submit" class="btn btn-outline bg-success btn-block" value="Submit">
-                </form>
-              </div>
-            </div>
-            <div class="row text-center pt-2 m-0">
-              <h8> Not registered yet? <a href="Registration.html">Register</a> </h8>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
 <!--Copyright-->
-
-<section id="copyright" class="text-center text-light">
+<section id="copyright" class="text-center py-3 text-light">
   <div class="container">
     <div class="row">
       <div class="col">
-        <p class="lead m-3">Copyright 2019 &copy; Wedding Organizer</p>
+        <p class="lead mb-0">Copyright 2019 &copy; Kh Shohag</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- popup for login -->
+<div class="modal mt" id="loginModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">User Login</h5>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="form-group">
+              <label for="userename">Username</label>
+              <input class="form-control" type="text" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input class="form-control" type="password" placeholder="Enter Password">
+            </div>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-warning">Login</button>
+
+        </div>
+        <hr>
+        <p class="mx-2 px-2">Don't have an account?? </p>
+        <p class="mx-2 mt-0 px-2">Click to <a href="Register.html">Register</a></p>
+
+
+      </div>
+    </div>
+  </div>
+<!-- popup for login -->
 
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/uikit.min.js"></script>
-    <script src="js/uikit-icons.min.js"></script>
-    <script src="js/navbar-fixed.js"></script>
-  </body>
-  </html>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/uikit.min.js"></script>
+  <script src="js/uikit-icons.min.js"></script>
+</body>
+</html>

@@ -1,3 +1,26 @@
+<?php require_once("include/DB.php"); ?>
+<?php require_once("include/function.php"); ?>
+<?php require_once("include/session.php"); ?>
+<?php require_once("login_act.php"); ?>
+<?php confirm_login2(); ?>
+<?php
+//fetching the admin data
+$adminid=$_SESSION["UserId"];
+global $connectingdb;
+$sql ="SELECT *FROM client WHERE id='$adminid'";
+$stmt=$connectingdb->query($sql);
+while($DataRows = $stmt->fetch()){
+  $id=$DataRows['id']; //fetched this one for the edit option
+  $Existingname= $DataRows['name'];
+  $Existingemail= $DataRows['email'];
+  $Existingpassword=$DataRows['password'];
+  $Existingphone=$DataRows['phone'];
+  $Existingtype=$DataRows['type'];
+  $Existingimage=$DataRows['image'];
+
+}
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,123 +51,76 @@
        <!--collapse to remove home,... from nav.. small device fact -->
        <ul class="navbar-nav ml-auto"><!--navbar-nav to remove bulletpoint from nav -->
          <li class="nav-item ">    <!--active to make the home icon actv in nav-->
-           <a class="nav-link" href="index.html">Home</a><!--commit to git-->
+           <a class="nav-link" href="index.html">Home</a>
          </li>
          <li class="nav-item">
            <a class="nav-link" href="Categories.html">Categories</a>
          </li>
-         <li class="nav-item active">
+         <li class="nav-item ">
            <a class="nav-link" href="About.html">About Us</a>
          </li>
-
          <li class="nav-item">
            <a class="nav-link" href="Contact.html">Contact</a>
          </li>
+         <li class="nav-item active">
+           <a class="nav-link" href="profile.php">Profile</a>
+         </li>
+
          <li class="nav-item">
-             <a class="nav-link" href="login_UI.php">Account</a>
-           </li>
-           <li class="nav-item">
-               <a class="nav-link" href="admin_login.php">Admin</a>
-             </li>
+           <a class="nav-link" href="logout.php">Logout</a>
+         </li>
+
+
        </ul>
      </div>
    </div>
 </nav>
 
-<!--Page Header-->
-<section id="page-header" class="text-light text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col pt-5">
-        <h2 class="text-light">About Us</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.</p>
-      </div>
+
+<!--Image-->
+<section id="prof_avatar" class="pt-5 pb-3">
+<div class="container">
+  <div class="row">
+  <div class="col-md-4 ">
+
+  </div>
+    <div class="col-md-4 ">
+      <img src="upload/<?php echo $Existingimage; ?>" class="img-fluid rounded-circle" alt="image">
     </div>
   </div>
-</section>
-<!--What we do-->
-<section id="about-info" class="py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 align-self-center">
-        <h3>What We Do</h3>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex quaerat magnam obcaecati repellendus voluptatum quisquam architecto iure, aliquam labore.</p>
-      </div>
-      <div class="col-md-6 text-right">
-        <img src="img/pexels-photo-1841546.jpeg" class="img-fluid rounded-circle" alt="image">
-      </div>
-    </div>
-  </div>
+</div>
 </section>
 
-<!--icon-box-->
-<section id="icon-boxes" class="py-5 text-center text-light">
+<!--info-->
+<section id="prof-info">
   <div class="container">
-    <!--Row-1-->
     <div class="row">
-      <div class="col-md-4">
-        <div class="card bg-success">
-          <div class="card-body">
-            <i class="fas fa-hotel "></i>
-            <h3 class="text-light">Community Center</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-dark">
-          <div class="card-body">
-            <i class="fas fa-utensils"></i>
-            <h3 class="text-light">Catering</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-primary">
-          <div class="card-body">
-            <i class="fas fa-palette"></i>
-            <h3 class="text-light">Decoration</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="col-md-4 ">
 
-    <!--Row-2-->
-    <div class="row pt-0 pt-md-4">
-      <div class="col-md-4">
-        <div class="card bg-danger">
-          <div class="card-body">
-            <i class="fas fa-taxi "></i>
-            <h3 class="text-light">Transportation</h3>
-            <p class="lead ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
       </div>
       <div class="col-md-4">
-        <div class="card bg-warning">
-          <div class="card-body">
-            <i class="fas fa-guitar"></i>
-            <h3 class="text-light">Entertainments</h3>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
+        <hr>
+        <h4>Name: <?php echo $Existingname ?></h4>
+        <hr>
+       <h4>Email: <?php echo $Existingemail ?></h4>
+       <hr>
+       <h4>Password: <?php echo $Existingpassword ?></h4>
+       <hr>
+       <h4>Phone: <?php echo $Existingphone ?></h4>
+       <hr>
+      <h4 class="pb-3">Type: <?php echo $Existingtype ?></h4>
+      <hr>
+      <div class="block pb-3">
+          <a href="update_client_info.php?id=<?php echo $id; ?>"><span class="btn btn-warning btn-block">Edit Profile</span></a>
       </div>
-      <div class="col-md-4">
-        <div class="card bg-secondary">
-          <div class="card-body">
-            <i class="fas fa-camera text-dark"></i>
-            <h3 >Photography</h3>
-            <p class="lead text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quasi magni placeat.</p>
-          </div>
-        </div>
+
       </div>
 
     </div>
   </div>
+
 </section>
+
 
 
 <!--Copyright-->
