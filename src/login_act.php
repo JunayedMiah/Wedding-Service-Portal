@@ -3,7 +3,7 @@
 <?php require_once("include/session.php"); ?>
 <?php
 if (isset($_POST["Submit"])){
-  $emai = $_POST["email"];
+  $email = $_POST["email"];
   $password= $_POST["Password"];
   if(empty($email) || empty($password)){
     $_SESSION["ErrorMessage"]="All fields must be filled out";
