@@ -2,7 +2,6 @@
 <?php require_once("include/function.php"); ?>
 <?php require_once("include/session.php"); ?>
 <?php require_once("login_act.php"); ?>
-<?php confirm_login2(); ?>
 <?php
 //fetching the admin data
 $adminid=$_SESSION["UserId"];
@@ -62,68 +61,107 @@ while($DataRows = $stmt->fetch()){
          <li class="nav-item">
            <a class="nav-link" href="Contact.html">Contact</a>
          </li>
-         <li class="nav-item active">
-           <a class="nav-link" href="profile.php">Profile</a>
-         </li>
-
          <li class="nav-item">
-           <a class="nav-link" href="logout.php">Logout</a>
-         </li>
-
-
+             <a class="nav-link" data-toggle="modal" data-target="#loginModal">Account</a>
+           </li>
        </ul>
      </div>
    </div>
 </nav>
 
 
-<!--Images-->
-<section id="prof_avatar" class="pt-5 pb-3">
-<div class="container">
-  <div class="row">
-  <div class="col-md-4 ">
 
-  </div>
-    <div class="col-md-4 ">
-      <img src="upload/<?php echo $Existingimage; ?>" class="img-fluid rounded-circle" alt="image">
-    </div>
-  </div>
-</div>
-</section>
 
-<!--info-->
-<section id="prof-info">
+
+
+
+<section class="py-5 text-center" id="profile">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 ">
-
+      <div class="col-lg-12">
+        <h3>Welcome <?php echo $Existingname ?> </h3>
       </div>
-      <div class="col-md-4">
-        <hr>
-        <h4>Name: <?php echo $Existingname ?></h4>
-        <hr>
-       <h4>Email: <?php echo $Existingemail ?></h4>
-       <hr>
-       <h4>Password: <?php echo $Existingpassword ?></h4>
-       <hr>
-       <h4>Phone: <?php echo $Existingphone ?></h4>
-       <hr>
-      <h4 class="pb-3">Type: <?php echo $Existingtype ?></h4>
-      <hr>
-      <div class="block pb-3">
-          <a href="update_client_info.php?id=<?php echo $id; ?>"><span class="btn btn-warning btn-block">Edit Profile</span></a>
-      </div>
-
-      </div>
-
     </div>
   </div>
-
 </section>
 
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="upload/<?php echo $Existingimage; ?>" class="img-fluid rounded-circle" alt="image">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle py-3">
+					<div class="profile-usertitle-job">
+              <?php echo $Existingemail ?>
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+
+				<div class="profile-userbuttons py-3">
+					<a class="btn btn-success btn-sm" href="update_client_info.php?id=<?php echo $id; ?>"> Edit</a>
+					<button type="button" class="btn btn-danger btn-sm">View More</button>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+          <div class="">
+            	<a href=""> Overview </a>
+          </div>
+          <div class="">
+            <a href=""> Account Settings </a>
+          </div>
+          <div class="">
+            <a href=""> Tasks </a>
+          </div>
+          <div class="">
+            	<a href=""> Help </a>
+          </div>
+        </div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+                  <h5 class="py-4 text-center font-weight-bold text-info">Your Information!</h5>
+
+                      <form class="form-group" action="update_member.php" method="post">
+                        <div class="form-group">
+                        <label >Company Name</label>
+                        <input type="text" name="cname" class="form-control" value=<?php echo $Existingname ?> required>
+                      </div>
+                      <div>
+                        <label class="mt-1">Email</label>
+                        <input type="email" name="email" class="form-control" value=<?php echo $Existingemail ?> required>
+                      </div>
+                      <div class=" mt-3">
+                        <label for="">User Type</label>
+                            <input type="text" name="type" class="form-control" value=<?php echo $Existingtype ?>>
+                      </div>
+                        <div class="form-group mt-3">
+                            <label for="">Phone No.</label>
+                            <input type="text" name="phn" class="form-control" value=<?php echo $Existingphone ?>>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="">Password</label>
+                            <input type="text" name="phn" class="form-control" value=<?php echo $Existingpassword ?>>
+                        </div>
+            </form>
+       </div>
+		</div>
+	</div>
+</div>
+<br>
+<br>
 
 
- <!--Copyright-->
+
+<!--Copyright-->
 <section id="copyright" class="text-center py-3 text-light">
   <div class="container">
     <div class="row">
@@ -169,7 +207,7 @@ while($DataRows = $stmt->fetch()){
       </div>
     </div>
   </div>
-<!-- Popup for login  -->
+<!-- popup for login -->
 
 
 
