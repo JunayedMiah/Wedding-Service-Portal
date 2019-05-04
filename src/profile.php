@@ -77,7 +77,7 @@ while($DataRows = $stmt->fetch()){
 </nav>
 
 
-<!--Image-->
+<!--Images-->
 <section id="prof_avatar" class="pt-5 pb-3">
 <div class="container">
   <div class="row">
@@ -123,7 +123,7 @@ while($DataRows = $stmt->fetch()){
 
 
 
-<!--Copyright-->
+ <!--Copyright-->
 <section id="copyright" class="text-center py-3 text-light">
   <div class="container">
     <div class="row">
@@ -169,7 +169,7 @@ while($DataRows = $stmt->fetch()){
       </div>
     </div>
   </div>
-<!-- popup for login -->
+<!-- Popup for login  -->
 
 
 
