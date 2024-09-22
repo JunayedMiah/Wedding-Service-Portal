@@ -1,8 +1,1 @@
-# Bootstrap 4 Starter Pack
-Includes complete Bootstrap 4 dev environment with gulp and sass
-# Install Dependencies
-npm install 
-# Compile Sass & Run Dev Serverr
-npm start
-
-Files are compiled into /src
+The Wedding Service Portal is a comprehensive platform designed to simplify the process of planning a wedding. It provides an easy-to-use interface for users to search for and book various wedding-related services, such as venues, photographers, caterers, florists, and more. The platform helps both service providers and couples by streamlining the wedding planning experience.
